@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>My AngularJS App</title>
   <link rel="stylesheet" href="css/app.css"/>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css"/>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.css"/>
 </head>
 <body ng-cloak-auth class="hide">
 
@@ -14,25 +16,31 @@
     <li ng-show-auth="login"><a href="#/account">account</a></li>
   </ul>
 
-  <div ng-view></div>
+  <div ng-view class="container"></div>
 
   <div>AngularFire-seed v<span app-version></span></div>
 
   <script src="https://cdn.firebase.com/v0/firebase.js"></script>
   <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
-  <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>-->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-route.min.js"></script>
+  <script src="lib/angular/angular-resource.min.js"></script>
+
+  <!-- AngularFire Plugin -->
+  <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+
   <script src="js/app.js"></script>
   <script src="js/config.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/routes.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/service.login.js"></script>
-  <script src="js/service.firebase.js"></script>
+  <script src="js/controllers/controllers.js"></script>
+  <script src="js/directives/directives.js"></script>
+  <script src="js/filters/filters.js"></script>
+  <script src="js/routes/routes.js"></script>
+  <script src="js/services/services.js"></script>
+  <script src="js/services/service.login.js"></script>
+  <script src="js/services/service.firebase.js"></script>
   <script src="js/module.waitForAuth.js"></script>
-  <script src="js/module.routeSecurity.js"></script>
+  <script src="js/routes/module.routeSecurity.js"></script>
 </body>
 </html>
