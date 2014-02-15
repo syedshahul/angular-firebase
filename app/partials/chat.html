@@ -1,15 +1,33 @@
 <h2>Chat</h2>
+<div class="well panel panel-primary">
+	<!--<div class="panel-heading">
 
-<form>
-  <input placeholder="Message..." ng-model="newMessage">
-  <button type="submit" ng-click="addMessage()">send</button>
-</form>
+	</div>-->
+	<div class="panel-body">
+		<ul id="messages" ng-show="messages">
+			<li ng-repeat="message in messages | orderByPriority | reverse">
+				{{message.text}}
+			</li>
+		</ul>
 
-<ul id="messages" ng-show="messages">
-    <li ng-repeat="message in messages | orderByPriority | reverse">{{message.text}}</li>
-</ul>
+		<form>
+
+			<div class="input-group">
+				<input type="text" placeholder="Message..." ng-model="newMessage"
+				       class="form-control input-lg">
+                    <span class="input-group-btn">
+                      <button ng-click="addMessage()" type="submit"
+                              class="btn btn-primary btn-lg">
+	                      Send
+                      </button>
+                    </span>
+			</div>
+		</form>
+	</div>
+</div>
+
 
 <p>
-  Running the 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+	Running the 'interpolate' filter:
+	{{ 'Current version is v%VERSION%.' | interpolate }}
 </p>

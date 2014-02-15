@@ -1,44 +1,52 @@
 
 <h2>Account</h2>
 
+
+<div class="well">
 <form>
-    <fieldset>
+  <div class="row">
+
+	  <button ng-click="logout()" class="btn btn-warning"
+	          style="padding-left: 10px;">Log Out</button>
+	<fieldset>
         <legend>Profile</legend>
 
         <label>
             <span>Name:</span>
-            <input type="text" name="name" ng-model="user.name"/>
+            <input type="text" name="name" ng-model="user.name" class="form-control"/>
         </label>
 
         <label>
             <span>Email:</span>
-            <input type="text" name="name" ng-model="user.email"/>
+            <input type="text" name="name" ng-model="user.email" class="form-control"/>
         </label>
     </fieldset>
 
-    <fieldset>
+    <fieldset style="padding-left: 10px;">
         <legend>Change Password</legend>
 
         <label>
             <span>Old Password:</span>
-            <input type="password" ng-keypress="reset()" ng-model="oldpass"/>
+            <input type="password" ng-keypress="reset()" ng-model="oldpass" class="form-control"/>
         </label>
 
         <label>
             <span>New Password:</span>
-            <input type="password" ng-keypress="reset()" ng-model="newpass"/>
+            <input type="password" ng-keypress="reset()" ng-model="newpass" class="form-control"/>
         </label>
 
         <label>
             <span>Confirm Password:</span>
-            <input type="password" ng-keypress="reset()" ng-model="confirm"/>
+            <input type="password" ng-keypress="reset()" ng-model="confirm"
+                   class="form-control"/>
         </label>
 
-        <button ng-click="updatePassword()">update password</button>
+        <button ng-click="updatePassword()" class="btn btn-primary">Update
+	        password</button>
 
         <p class="error" ng-show="err">{{err}}</p>
         <p class="good" ng-show="msg">{{msg}}</p>
     </fieldset>
+  </div>
 </form>
-
-<button ng-click="logout()">Log Out</button>
+</div>
