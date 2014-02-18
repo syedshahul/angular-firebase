@@ -2,8 +2,33 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-   .controller('HomeCtrl', ['$scope', 'syncData', function($scope, syncData) {
+var myApp =angular.module('myApp.controllers',[])
+
+.controller('MainCtrl',['$rootScope', '$scope','githubService', '$location','$q', function($rootScope, $scope, githubService, $location, $q) {
+	$scope.name = 'World';
+	console.log($scope.auth);
+	console.log($scope.name);
+	console.log($rootScope.name);
+
+	$scope.login = function(){
+		githubService.login();
+		console.log($rootScope.username);
+		$scope.auth=$rootScope.auth;
+		$location.redirectTo('/home');
+	}
+
+	$scope.logout = function(){
+		githubService.logout();
+	}
+
+}])
+   .controller('HomeCtrl', ['$rootScope', '$scope', 'syncData', function($rootScope, $scope, syncData) {
+	console.log('$scope.auth.authenticated : '+$scope.auth.authenticated);
+	console.log('$rootScope.auth.username '+$rootScope.auth.username);
+	console.log('$rootScope.auth '+$rootScope.auth.toString());
+	$scope.auth=$rootScope.auth;
+	console.log('$rootScope.auth.authenticated : '+$rootScope.auth.authenticated);
+	console.log('scope.auth.authenticated : '+$scope.auth.authenticated);
       syncData('syncedValue').$bind($scope, 'syncedValue');
    }])
 

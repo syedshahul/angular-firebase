@@ -1,5 +1,5 @@
 
-angular.module('myApp.service.firebase', ['firebase'])
+var myApp =angular.module('myApp.service.firebase', [])
 
 // a simple utility to create references to Firebase paths
    .factory('firebaseRef', ['Firebase', 'FBURL', function(Firebase, FBURL) {

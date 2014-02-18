@@ -1,16 +1,26 @@
 "use strict";
 
-angular.module('myApp.routes', ['ngRoute'])
+var myApp = angular.module('myApp.routes', [])
 
    // configure views; the authRequired parameter is used for specifying pages
    // which should only be available while logged in
    .config(['$routeProvider', function($routeProvider) {
       $routeProvider.when('/home', {
          templateUrl: 'partials/home.html',
-         controller: 'HomeCtrl'
+         controller: 'HomeCtrl',
+				resolve: {
+					myApp: function($q, $timeout) {
+						var defer = $q.defer();
+						$timeout(function() {
+							defer.resolve();
+						}, 3000);
+						return defer.promise;
+					}
+				}
       });
 
       $routeProvider.when('/chat', {
+				authRequired: true,
          templateUrl: 'partials/chat.html',
          controller: 'ChatCtrl'
       });
@@ -22,9 +32,16 @@ angular.module('myApp.routes', ['ngRoute'])
       });
 
       $routeProvider.when('/login', {
+				authRequired: false,
          templateUrl: 'partials/login.html',
          controller: 'LoginCtrl'
       });
+	   $routeProvider.when('/gitlogin', {
+		    authRequired: false,
+				controller: 'MainCtrl',
+			 redirectTo: '/home'
+
+	});
 
       $routeProvider.otherwise({redirectTo: '/home'});
    }]);
